@@ -1,14 +1,19 @@
 
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>hello weather</h1>
-      </header>
-    </div>
-  );
-}
+export default function App() {
+  return <div className="App">
+    <h1>Weather App</h1>
+    <footer>
+      This project was coded by Phefumlela Madyo and is {""}
+        <a href="https://github.com/PhefuM/react-weather-search-engine" target="_blank" rel="noreferrer">
+        open-sourced on GitHub{""}
+        </a>
+       {""} and is {""}
+        <a href="https://luminous-licorice-97f0db.netlify.app/" target="_blank" rel="noreferrer">
+        hosted on Netlify
+        </a>
+    </footer>
+  </div>
 
-export default App;
+}
