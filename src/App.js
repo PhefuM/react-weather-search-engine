@@ -1,9 +1,11 @@
-
+import React from 'react';
+import Weather from "./Weather"
 import './App.css';
 
 export default function App() {
   return <div className="App">
     <h1>Weather App</h1>
+    <Weather />
     <footer>
       This project was coded by Phefumlela Madyo and is {""}
         <a href="https://github.com/PhefuM/react-weather-search-engine" target="_blank" rel="noreferrer">
