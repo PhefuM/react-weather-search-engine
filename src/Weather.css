@@ -16,12 +16,14 @@
 .Weather ul {
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 .Weather li {
     font-size: 16px;
     font-weight: 100;
     line-height: 19px;
+    
 }
 
 .Weather img {

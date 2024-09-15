@@ -1,10 +1,38 @@
-import React from "react";
+import React, {useState} from "react";
+import axios from "axios";
 import "./Weather.css"
 
-export default function Weather() {
+export default function Weather(props) {
+ const [weatherData, setWeatherData] = useState({ready:false})
+ function handleResponse(response){
+  setWeatherData({
+   ready: true,
+   temperature: response.data.temperature.current,
+   date: "Wednesday 07:00",
+   description: response.data.condition.description,
+   icon_url: "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png",
+   humidity: response.data.temperature.humidity,
+   wind: response.data.wind.speed,
+   city: response.data.name,
+  
+  });
+ }
+
+ function handleSubmit(event){
+  event.preventDefault();
+ }
+
+ function searchCity(city) {
+  const apiKey= "4o05t4b450f7bf3040828beac3b1db1c";
+  let apiUrl= `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`
+  axios.get(apiUrl).then(handleResponse);
+ }
+ 
+
+ if (weatherData.ready) {
     return (
     <div className="Weather">
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="row">
                 <div className="col-9">
                     <input
@@ -20,32 +48,45 @@ export default function Weather() {
                       </div>
                     </form>
                     <br />
-                    <h1>New York</h1>
+                    <h1>{weatherData.city}</h1>
                     <ul>
-                        <li>Wednesday 07:00</li>
-                        <li>Mostly cloudy</li>
+                        <li>{weatherData.date}</li>
+                        <li  className="text-capitalization">
+                         {weatherData.description}
+                        </li>
                     </ul>
 
                     <div className="row mt-3">
                         <div className="col-6">
-                         
-                            <img src="https://gstatic.com/onebox/weather/64/partly_cloudy.png"
-                            alt="Mostly cloudy"
+                         <div className="clearfix">
+                            <img src= {weatherData.icon_url}
+                            alt= {weatherData.description}
+                            className="float-left"
                             />
-                                                 
-                            <span className="temperature">6</span>
+                            
+                            <div className="float-left">
+                            <span className="temperature">
+                             {Math.round(weatherData.temperature)}
+                            </span>
                             <span className="units">°C</span>
+                            </div>
+                            </div>
                             </div>
                             <div className="col-6">
                                 <ul>
-                                    <li>Precipitation</li>
-                                    <li>Humidity:72%</li>
-                                    <li>Wind: 13km/h</li>
+                                    <li>Humidity:{weatherData.humidity} %</li>
+                                    <li>Wind: {weatherData.wind} 13km/h</li>
                                 </ul>
                             </div>
                           </div>
                         </div>
                       
                         ); 
+                       } else{
+                        searchCity(props.defaultCity);
+                        
+                        return "Loading..";
+                       }
+                      
                       
 }
