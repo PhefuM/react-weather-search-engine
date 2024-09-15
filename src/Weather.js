@@ -58,19 +58,19 @@ export default function Weather(props) {
 
                     <div className="row mt-3">
                         <div className="col-6">
-                         <div className="clearfix">
+                         
                             <img src= {weatherData.icon_url}
                             alt= {weatherData.description}
-                            className="float-left"
+                           
                             />
                             
-                            <div className="float-left">
+                            
                             <span className="temperature">
                              {Math.round(weatherData.temperature)}
                             </span>
                             <span className="units">°C</span>
-                            </div>
-                            </div>
+                           
+                            
                             </div>
                             <div className="col-6">
                                 <ul>
