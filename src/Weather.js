@@ -5,6 +5,7 @@ import "./Weather.css"
 export default function Weather(props) {
  const [weatherData, setWeatherData] = useState({ready:false})
  function handleResponse(response){
+  console.log(response);
   setWeatherData({
    ready: true,
    temperature: response.data.temperature.current,
@@ -14,9 +15,9 @@ export default function Weather(props) {
    humidity: response.data.temperature.humidity,
    wind: response.data.wind.speed,
    city: response.data.name,
-  
   });
  }
+ 
 
  function handleSubmit(event){
   event.preventDefault();
