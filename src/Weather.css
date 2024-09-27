@@ -52,3 +52,41 @@
     line-height: -1;
 
 }
+
+.Weather .float-left {
+    float: left;
+  }
+  
+  .Weather .btn {
+    background-color: #453f76;
+    color: white;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+  
+  .Weather .btn:hover {
+    background-color: white;
+    color: rgb(33, 33, 33);
+  }
+  
+  .WeatherForecastIcon {
+    height: 55px;
+    width: 55px;
+  }
+  
+  .Weather .btn {
+    background-color: #3679d1;
+    color: white;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+  
+  .Weather .btn:hover {
+    background-color: white;
+    color: rgb(33, 33, 33);
+  }
+  
+  .WeatherForecastIcon {
+    height: 55px;
+    width: 55px;
+  }
